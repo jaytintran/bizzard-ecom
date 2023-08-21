@@ -1,5 +1,6 @@
-# Welcome to Remix!
+![image](https://github.com/jaytintran/go-gadgets/assets/29084790/a1503bac-dc56-49f6-a80d-d1a28e4492f8)
 
+## Specs & Docs
 - [Remix Docs](https://remix.run/docs)
 
 ## Development
