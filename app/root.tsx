@@ -9,6 +9,7 @@ import {
   ScrollRestoration,
   useLoaderData,
 } from "@remix-run/react";
+import Navbar from "./components/Navbar";
 
 export const loader = () => {
   return json({
@@ -42,17 +43,19 @@ export default function App() {
           name="viewport"
           content="width=device-width,initial-scale=1"
         />
+        <script src="https://cdn.tailwindcss.com"></script>
         <Meta />
         <Links />
       </head>
       <body>
-        <div className="container">
+        <Navbar />
+        <div className="container mx-auto">
           <header className="header">
             <a
               className="header__title"
               href="/"
             >
-              Remix + Sanity
+              2023 New Update
             </a>
           </header>
           <main>

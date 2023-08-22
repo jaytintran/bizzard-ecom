@@ -41,6 +41,21 @@ export async function getPost(slug: string): Promise<Post> {
   );
 }
 
+export async function getProducts(): Promise<Product[]> {
+  return await client.fetch(
+    groq`*[_type == "product" && defined(slug.current)] | order(_createdAt desc)`
+  );
+}
+
+export async function getProduct(slug: string): Promise<Product> {
+  return await client.fetch(
+    groq`*[_type == "product" && slug.current == $slug][0]`,
+    {
+      slug,
+    }
+  );
+}
+
 export interface Post {
   _type: "post";
   _createdAt: string;
@@ -49,4 +64,14 @@ export interface Post {
   excerpt?: string;
   mainImage?: ImageAsset;
   body: PortableTextBlock[];
+}
+
+export interface Product {
+  _type: 'product';
+  _createdAt: string;
+  title?: string;
+  slug: Slug;
+  description?: string;
+  mainImage?: ImageAsset;
+  price?: number;
 }
